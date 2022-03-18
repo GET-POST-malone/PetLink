@@ -1,0 +1,20 @@
+[
+  {
+    "name": "rex",
+    "species": "dog",
+    "breed": "poodle",
+    "sex": "female",
+    "age": "old",
+    "size": "small",
+    "city": "chicago"
+  },
+  {
+    "name": "roy",
+    "species": "cat",
+    "breed": "siamese",
+    "sex": "female",
+    "age": "old",
+    "size": "small",
+    "city": "niles"
+  }
+]

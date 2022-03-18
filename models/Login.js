@@ -22,7 +22,6 @@ Login.init(
     },
     city: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
