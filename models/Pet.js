@@ -26,6 +26,10 @@ Pet.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    age: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
 
     size: {
       type: DataTypes.STRING,
@@ -36,10 +40,15 @@ Pet.init(
       type: DataTypes.STRING,
     },
 
-    user_id: {
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
+    login_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'login',
         key: 'id',
       },
     },
