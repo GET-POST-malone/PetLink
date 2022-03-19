@@ -1,6 +1,31 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
+
+router.get('/', async (req, res) => {
+  try {
+    // Get all pets
+
+    let whereClause = {};
+
+    if (req.query.city) {
+      whereClause = {
+        city: req.query.city,
+      };
+    }
+
+    const petData = await Pet.findAll({
+      where: whereClause,
+    });
+
+    // Serialize data so the template can read it
+    const pets = petData.map((pet) => pet.get({ plain: true }));
+    // Pass serialized data and session flag into template
+    res.status(200).json(pets);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.post('/', withAuth, async (req, res) => {
   try {

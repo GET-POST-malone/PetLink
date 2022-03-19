@@ -2,42 +2,51 @@ const searchedPetCards = document.getElementById('searchedPetCards');
 
 function handleSearchForPetsBtnClick() {
   let cityInput = document.getElementById('cityInput').value.toLowerCase();
-  console.log(cityInput);
 
   const dropdownSpecies = document.getElementById('dropdownSpecies');
   const speciesSelected = dropdownSpecies.options[dropdownSpecies.selectedIndex].value;
-  console.log(speciesSelected);
 
   const dropdownAge = document.getElementById('dropdownAge');
   const ageSelected = dropdownAge.options[dropdownAge.selectedIndex].value;
-  console.log(ageSelected);
 
   const dropdownSex = document.getElementById('dropdownSex');
   const sexSelected = dropdownSex.options[dropdownSex.selectedIndex].value;
-  console.log(sexSelected);
 
   const dropdownSize = document.getElementById('dropdownSize');
   const sizeSelected = dropdownSize.options[dropdownSize.selectedIndex].value;
-  console.log(sizeSelected);
 
   searchForPets(cityInput, speciesSelected, ageSelected, sexSelected, sizeSelected);
 }
 
-// async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelected, sizeSelected) {
-//   const response = await fetch(`/api/pets`, {
-//     method: 'GET',
-//     attributes: [cityInput, speciesSelected, ageSelected, sexSelected, sizeSelected],
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   });
+async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelected, sizeSelected) {
+  event.preventDefault();
 
-//   if (response.ok) {
-//     console.log(response);
-//   } else {
-//     alert('Search failed');
-//   }
-// }
+  // set url variable as start of search
+  let url = '/api/pets?';
+
+  // set variable for each search parameters and include possibility of empty string
+  const city = cityInput || '';
+  const species =
+    // add the city query parameter: if cityInput is not blank, then add city=searchedcity into the url otherwise return all pets
+    (url = city !== '' ? (url += `city=${city}&`) : url);
+
+  // TODO: add the other query parameters one at a time
+
+  // fet to GET pets with city parameter (only city parameter for now)
+  const response = await fetch(url, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+  } else {
+    alert('Search failed');
+  }
+}
 
 // array of objects to test looping functionality
 const petArray = [

@@ -27,21 +27,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/project/:id', async (req, res) => {
+// add route to petsearch page
+router.get('/petsearch', async (req, res) => {
   try {
-    const projectData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: Login,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    const project = projectData.get({ plain: true });
-
-    res.render('project', {
-      ...project,
+    res.render('petsearch', {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
