@@ -26,11 +26,18 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
 
   // set variable for each search parameters and include possibility of empty string
   const city = cityInput || '';
-  const species =
-    // add the city query parameter: if cityInput is not blank, then add city=searchedcity into the url otherwise return all pets
-    (url = city !== '' ? (url += `city=${city}&`) : url);
+  const species = speciesSelected || '';
+  const age = ageSelected || '';
+  // const sex = sexSelected || '';
+  // const size = sizeSelected || '';
 
-  // TODO: add the other query parameters one at a time
+  // add each query parrameter to the url
+  // add the city query parameter: if cityInput is not blank, then add city=searchedcity into the url otherwise return all pets
+  url = city !== '' ? (url += `city=${city}&`) : url;
+  // add the species query parameter: if speciesSelected is not blank, then add species=searchedspecies into the url otherwise return all pets
+  url = species !== '' ? (url += `species=${species}&`) : url;
+  // add the age query parameter: if ageSelected is not blank, then add age=ageSelected into the url otherwise return all pets
+  url = age !== '' ? (url += `age=${age}&`) : url;
 
   // fet to GET pets with city parameter (only city parameter for now)
   const response = await fetch(url, {

@@ -8,12 +8,24 @@ router.get('/', async (req, res) => {
 
     let whereClause = {};
 
+    // adds key:value to object for each query
+
+    // add city
     if (req.query.city) {
-      whereClause = {
-        city: req.query.city,
-      };
+      whereClause.city = req.query.city;
     }
 
+    // add species
+    if (req.query.species) {
+      whereClause.species = req.query.species;
+    }
+
+    // add age
+    if (req.query.age) {
+      whereClause.age = req.query.age;
+    }
+
+    // find all including all queries in where clause object
     const petData = await Pet.findAll({
       where: whereClause,
     });

@@ -16,5 +16,32 @@
     "age": "old",
     "size": "small",
     "city": "niles"
+  },
+  {
+    "name": "bob",
+    "species": "cat",
+    "breed": "persian",
+    "sex": "male",
+    "age": "young adult",
+    "size": "x-small",
+    "city": "springfield"
+  },
+  {
+    "name": "ashley",
+    "species": "dog",
+    "breed": "airdale",
+    "sex": "female",
+    "age": "mature",
+    "size": "medium",
+    "city": "glen ellyn"
+  },
+  {
+    "name": "mr floofies",
+    "species": "cat",
+    "breed": "domestic medium hair",
+    "sex": "male",
+    "age": "adult",
+    "size": "xsmall",
+    "city": "skokie"
   }
 ]
