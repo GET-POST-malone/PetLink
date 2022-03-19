@@ -25,6 +25,16 @@ router.get('/', async (req, res) => {
       whereClause.age = req.query.age;
     }
 
+    // add sex
+    if (req.query.sex) {
+      whereClause.sex = req.query.sex;
+    }
+
+    // add size
+    if (req.query.size) {
+      whereClause.size = req.query.size;
+    }
+
     // find all including all queries in where clause object
     const petData = await Pet.findAll({
       where: whereClause,
@@ -39,6 +49,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// TODO: Jon updates to add a pet
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -52,6 +63,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// TODO: Jon delete a pet
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const projectData = await Project.destroy({

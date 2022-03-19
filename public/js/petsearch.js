@@ -28,8 +28,8 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
   const city = cityInput || '';
   const species = speciesSelected || '';
   const age = ageSelected || '';
-  // const sex = sexSelected || '';
-  // const size = sizeSelected || '';
+  const sex = sexSelected || '';
+  const size = sizeSelected || '';
 
   // add each query parrameter to the url
   // add the city query parameter: if cityInput is not blank, then add city=searchedcity into the url otherwise return all pets
@@ -38,8 +38,13 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
   url = species !== '' ? (url += `species=${species}&`) : url;
   // add the age query parameter: if ageSelected is not blank, then add age=ageSelected into the url otherwise return all pets
   url = age !== '' ? (url += `age=${age}&`) : url;
+  // add the age query parameter: if ageSelected is not blank, then add age=ageSelected into the url otherwise return all pets
+  url = sex !== '' ? (url += `sex=${sex}&`) : url;
+  // add the age query parameter: if ageSelected is not blank, then add age=ageSelected into the url otherwise return all pets
+  url = size !== '' ? (url += `size=${size}&`) : url;
 
   // fet to GET pets with city parameter (only city parameter for now)
+
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -50,46 +55,21 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
   if (response.ok) {
     const data = await response.json();
     console.log(data);
+    handleResults(data);
   } else {
     alert('Search failed');
   }
 }
 
-// array of objects to test looping functionality
-const petArray = [
-  {
-    name: 'rex',
-    img: 'https://www.loveyourdog.com/wp-content/uploads/2019/04/Toy-Poodle-900x500.jpg',
-    species: 'dog',
-    breed: 'poodle',
-    sex: 'female',
-    age: 'old',
-    size: 'small',
-    city: 'chicago',
-  },
-  {
-    name: 'roy',
-    img: 'https://www.thegoodypet.com/wp-content/uploads/2021/04/Siamese-Cats.jpg',
-    species: 'cat',
-    breed: 'siamese',
-    sex: 'female',
-    age: 'old',
-    size: 'small',
-    city: 'niles',
-  },
-];
-
-function handleResults() {
-  console.log(petArray);
-
-  petArray.forEach(function (petObj) {
+function handleResults(data) {
+  data.forEach(function (petObj) {
     // create the div to hold the pet card
     const newPetDiv = document.createElement('div');
 
     // create the img element, add the image source link, and append to div
-    const newPetImg = document.createElement('IMG');
-    newPetImg.src = petObj.img;
-    newPetDiv.appendChild(newPetImg);
+    // const newPetImg = document.createElement('IMG');
+    // newPetImg.src = petObj.img;
+    // newPetDiv.appendChild(newPetImg);
 
     // create text node with pet name and append to div
     const petName = document.createTextNode(petObj.name);
@@ -116,37 +96,13 @@ function handleResults() {
     newPetDiv.appendChild(petSize);
 
     // create text node with city and append to div
-    const petCity = document.createTextNode(petObj.size);
+    const petCity = document.createTextNode(petObj.city);
     newPetDiv.appendChild(petCity);
 
     // append the new pet div to the searchedPetCards div
     searchedPetCards.append(newPetDiv);
-
-    // let petCardString = `<div>
-    //     <div>
-    //         <img src='${petImg}' alt='pet picture'>
-    //     </div>
-
-    //     <div>
-    //         <p>${petName}</p>
-    //         <p>${petSpecies}</p>
-    //         <p>${petBreed}</p>
-    //         <p>${petSex}</p>
-    //         <p>${petAge}</p>
-    //         <p>${petSize}</p>
-    //         <p>${petCity}</p>
-
-    //     </div>
-    // </div>`;
-    // searchedPetCards.append(petCardString);
   });
 }
 
 // event handlers
 document.getElementById('searchForPetsBtn').addEventListener('click', handleSearchForPetsBtnClick);
-
-// function init() {
-//   handleResults();
-// }
-
-// init();
