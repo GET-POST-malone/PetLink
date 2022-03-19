@@ -38,10 +38,8 @@ const delButtonHandler = async (event) => {
   }
 };
 
-document
-  .querySelector('.new-project-form')
-  .addEventListener('submit', newFormHandler);
+document.querySelector('.new-project-form').addEventListener('submit', newFormHandler);
 
-document
-  .querySelector('.project-list')
-  .addEventListener('click', delButtonHandler);
+document.querySelector('.project-list').addEventListener('click', delButtonHandler);
+
+// TODO: add data validation functionality if user leaves a field blank an error message div will appear below the Add Pet button
