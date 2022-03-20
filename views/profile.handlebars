@@ -9,34 +9,64 @@
     <h3>Add a pet to rehome:</h3>
 
     <form class='form new-project-form'>
+
       <div class='form-group'>
         <label for='pet-name'>pet name:</label>
-        <input class='form-input' type='text' id='project-name' name='project-name' />
+        <input class='form-input' type='text' id='pet-name' name='pet-name' />
       </div>
+
       <div class='form-group'>
         <label for='pet-species'>pet species:</label>
-        <input class='form-input' type='text' id='project-funding' name='project-funding' />
+        <select id='pet-species' name='pet-species'>
+          <option value='' disabled selected>Species</option>
+          <option value='dog'>dog</option>
+          <option value='cat'>cat</option>
+        </select>
       </div>
+
       <div class='form-group'>
-        <label for='project-desc'>breed:</label>
-        <textarea class='form-input' id='project-desc' name='project-desc'></textarea>
+        <label for='pet-breed'>breed:</label>
+        <textarea class='form-input' id='pet-breed' name='pet-breed'></textarea>
       </div>
+
       <div class='form-group'>
-        <label for='project-desc'>sex:</label>
-        <textarea class='form-input' id='project-desc' name='project-desc'></textarea>
+        <label for='pet-sex'>sex:</label>
+        <select id='pet-sex' name='pet-sex'>
+          <option value='' disabled selected>Sex</option>
+          <option value='female'>female</option>
+          <option value='male'>male</option>
+        </select>
       </div>
+
       <div class='form-group'>
-        <label for='project-desc'>age:</label>
-        <textarea class='form-input' id='project-desc' name='project-desc'></textarea>
+        <label for='pet-age'>age:</label>
+        <select id='pet-age' name='pet-age'>
+          <option value='' disabled selected>Age</option>
+          <option value='puppyKitten'>puppy/kitten</option>
+          <option value='youngAdult'>young adult (1-2 years)</option>
+          <option value='adult'>adult (3-6 years)</option>
+          <option value='mature'>mature (7-10 years)</option>
+          <option value='senior'>senior (11-14 years)</option>
+          <option value='geriatric'>geriatric (15+ years)</option>
+        </select>
       </div>
+
       <div class='form-group'>
-        <label for='project-desc'>size:</label>
-        <textarea class='form-input' id='project-desc' name='project-desc'></textarea>
+        <label for='pet-size'>size:</label>
+        <select id='pet-size' name='pet-size'>
+          <option value='' disabled selected>Size</option>
+          <option value='xsmall'>x-small (8lbs or less)</option>
+          <option value='small'>small (9-25lbs)</option>
+          <option value='medium'>medium (24-55lbs)-</option>
+          <option value='large'>large (60-85lbs)-</option>
+          <option value='xlarge'>x-large (85lbs+)-</option>
+        </select>
       </div>
+
       {{! TODO: add image functionality }}
       <div class='form-group'>
-        <label for='project-desc'>city:</label>
-        <textarea class='form-input' id='project-desc' name='project-desc'></textarea>
+        <label for='pet-city'>city:</label>
+        <textarea class='form-input' id='pet-city' name='pet-city'></textarea>
       </div>
 
       <div class='form-group'>
@@ -47,15 +77,15 @@
 
   {{#if projects.length}}
     <div class='col-md-6 project-list'>
-      <h3>Current Projects:</h3>
+      <h3>My Pets To Rehome:</h3>
 
-      {{#each projects as |project|}}
+      {{#each pets as |pet|}}
         <div class='row mb-2'>
           <div class='col-md-8'>
-            <h4><a href='/project/{{project.id}}'>{{project.name}}</a></h4>
+            <h4><a href='/project/{{pet.id}}'>{{pet.name}}</a></h4>
           </div>
           <div class='col-md-4'>
-            <button class='btn btn-sm btn-danger' data-id='{{project.id}}'>DELETE</button>
+            <button class='btn btn-sm btn-danger' data-id='{{pet.id}}'>DELETE</button>
           </div>
         </div>
       {{/each}}

@@ -62,6 +62,8 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
 }
 
 function handleResults(data) {
+  // TODO: clear search div before looping
+
   data.forEach(function (petObj) {
     // create the div to hold the pet card
     const newPetDiv = document.createElement('div');
