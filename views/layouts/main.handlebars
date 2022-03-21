@@ -4,42 +4,72 @@
     <meta charset='UTF-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
     <title>PetLink</title>
+    <!-- favicon -->
+    <link rel='icon' type='image/x-icon' href='/img/petLink-fav.png' />
+    <!-- bulma  -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css' />
-    <link rel='stylesheet' href='/css/jass.css' />
-    <link rel='stylesheet' href='/css/style.css' />
+    <!-- styles -->
+    <link rel='stylesheet' href='/css/reset.css' />
+    <link rel='stylesheet' href='/css/main.css' />
   </head>
 
   <body>
-    <div class='flex-column justify-space-around'>
-      <header class='display-flex justify-space-between align-center p-2'>
-        <h1>
-          <span role='img' aria-label='money'></span>
-          <a href='/'>PetLink</a>
-        </h1>
-        <nav>
+    <!-- Animal Image -->
+    <figure class='has-text-centered m-0 p-0'>
+      <img class='w-20' src='./img/bannerImg.png' alt='an image of a brown dog on the left and a brown tabby cat on the right' />
+    </figure>
+
+    <!-- hero banner with Logo  -->
+    <header class='bgc-tan hero is-small'>
+      <nav class='hero-body'>
+         <!-- App Name -->
+          <p class='c-eggshell has-text-centered is-1 mt-0 title'>
+            PetLink
+          </p>
+        <div class='level mb-0'>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href='/profile'>profile</a>
-            |
-            <button class='no-button' id='logout'>logout</button>
-          {{else}}
-            <a href='/login'>login</a>
+          <div class='is-size-4 has-text-weight-semibold level-left'>
+            <a class='c-eggshell level-item' id="logout">Log Out</a>
+            </div>
+            {{else}}
+          <div class='is-size-4 has-text-weight-semibold level-left'>
+            <a class='c-eggshell level-item' href='/login'>Log in</a>
+          </div>
           {{/if}}
-        </nav>
-      </header>
-      <main class='container container-fluid mt-5'>
+         
+          <!-- Search Pets -->
+        <div class="is-size-4 has-text-weight-semibold level-right ">
+          <a class="c-eggshell level-item mr-4" href="/petsearch">Search Pets</a>
+          <a class="c-eggshell level-item ml-4" href="/profile">Rehome A Pet</a>
+        </div>
+         
+      </nav>
+    </header>
+
+      <main class=''>
         <!-- Render the sub layout -->
         {{{body}}}
       </main>
-      <footer>
-
-      </footer>
-    </div>
 
     <!-- Render script for logged in users only -->
     {{#if logged_in}}
       <script src='/js/logout.js'></script>
     {{/if}}
+  
+  <!-- footer -->
+  <footer class="footer bgc-peach">
+    <div class="content has-text-centered">
+      <p>
+        <strong>PetLink</strong> made with ❤️ by <a href="https://github.com/Jonchirinos" target="_blank">Jon Chirinos</a>, <a
+          href="https://github.com/NotANewt" target="_blank">Meegan
+          Anderson</a>, <a href="https://github.com/Sarahlophus" target="_blank">Sarah Williams</a>, <a href="https://github.com/tfrohm11" target="_blank">Tom Frohm</a>. The source
+        code is licensed
+        <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>
+      </p>
+    </div>
+  </footer>
+
   </body>
 
 </html>
