@@ -28,6 +28,8 @@ const newFormHandler = async (event) => {
   // set petName variable and assign string set to lowercase
   let petCity = document.getElementById('pet-city').value.toLowerCase();
 
+  //TODO: add login_id
+
   if (petName && petSpecies && petBreed && petSex && petAge && petSize && petCity) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
