@@ -1,0 +1,36 @@
+/* classes */
+.bgc-tan {
+  background-color: #e29578;
+}
+
+.bgc-dTeal {
+  background-color: #006d77;
+}
+
+.bgc-lTeal {
+  background-color: #83c5be;
+}
+
+.bgc-peach {
+  background-color: #ffddd2;
+}
+
+.c-dTeal {
+  color: #006d77;
+}
+
+.c-eggshell {
+  color: #edf6f9;
+}
+
+.hidden {
+  display: none;
+}
+
+.w-20 {
+  width: 20%;
+}
+
+.w-10 {
+  width: 10%;
+}
