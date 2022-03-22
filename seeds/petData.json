@@ -14,7 +14,7 @@
     "breed": "siamese",
     "sex": "female",
     "age": "old",
-    "size": "small",
+    "size": "medium",
     "city": "niles"
   },
   {
@@ -43,5 +43,50 @@
     "age": "adult",
     "size": "xsmall",
     "city": "skokie"
+  },
+  {
+    "name": "georgio",
+    "species": "cat",
+    "breed": "short hair",
+    "sex": "female",
+    "age": "kitten",
+    "size": "small",
+    "city": "skokie"
+  },
+  {
+    "name": "haley",
+    "species": "dog",
+    "breed": "rotweiler",
+    "sex": "male",
+    "age": "puppy",
+    "size": "large",
+    "city": "des plaines"
+  },
+  {
+    "name": "champ",
+    "species": "dog",
+    "breed": "lab",
+    "sex": "female",
+    "age": "old",
+    "size": "xlarge",
+    "city": "mount prospect"
+  },
+  {
+    "name": "luna",
+    "species": "cat",
+    "breed": "persian",
+    "sex": "male",
+    "age": "old",
+    "size": "large",
+    "city": "chicago"
+  },
+  {
+    "name": "charlie",
+    "species": "cat",
+    "breed": "maine coon",
+    "sex": "male",
+    "age": "adult",
+    "size": "medium",
+    "city": "chicago"
   }
 ]
