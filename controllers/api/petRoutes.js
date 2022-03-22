@@ -3,6 +3,7 @@ const { Pet } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
+  console.log('hit the route');
   try {
     // Get all pets
 
@@ -50,35 +51,40 @@ router.get('/', async (req, res) => {
 });
 
 // TODO: Jon updates to add a pet
-router.post('/', withAuth, async (req, res) => {
+router.put('/:id', async (req, res) => {
+  console.log(req);
   try {
-    const newProject = await Project.create({
-      ...req.body,
-      login_id: req.session.login_id,
+    let petData = await Pet.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     });
-
-    res.status(200).json(newProject);
+    if (!petData[0]) {
+      res.status(404).json({ message: 'No pet with this id!' });
+      return;
+    }
+    res.status(200).json(petData);
   } catch (err) {
-    res.status(400).json(err);
+    res.status(500).json(err);
   }
 });
 
 // TODO: Jon delete a pet
 router.delete('/:id', withAuth, async (req, res) => {
+  console.log('you hit the delete');
   try {
-    const projectData = await Project.destroy({
+    const petData = await Pet.destroy({
       where: {
         id: req.params.id,
-        login_id: req.session.login_id,
       },
     });
 
-    if (!projectData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+    if (!petData) {
+      res.status(404).json({ message: 'No pet found with this id!' });
       return;
     }
 
-    res.status(200).json(projectData);
+    res.status(200).json(petData);
   } catch (err) {
     res.status(500).json(err);
   }

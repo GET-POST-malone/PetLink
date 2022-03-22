@@ -3,6 +3,7 @@ const { Pet, Login } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+  console.log('hit the route');
   try {
     // Get all projects and JOIN with login data
     const petData = await Pet.findAll({
