@@ -1,68 +1,106 @@
-<!-- {{! Header }}
-{{! Logo on the left and maybe an animal picture across the rest }} -->
-<header>
-  <div>Logo Goes On The Left</div>
-  <div>An animal picture might go here</div>
-</header>
-<!-- {{! Navbar }}
-{{! Button to search for pets on the left and link to add a pet to rehome on the right }} -->
-<nav>
-  <!-- TODO: link to add a pet to rehome page when that page exists -->
-  <a href=''>Add A Pet To Rehome</a>
-</nav>
+<!-- welcome and prompt -->
+<div class='m-4'>
+  <h2 class='c-dTeal has-text-centered title'>Welcome [NAME]</h2>
+  <p class='c-dTeal has-text-centered subtitle'>Enter Your search criteria below to find Chicagoland pets looking for new homes!</p>
+</div>
 
-<!-- {{! city input}} -->
-<form action=''>
-  <div>
-    <input type='text' id='cityInput' placeholder='Enter City Here' />
-
+<!--! city input -->
+<form action='' class='columns is-centered'>
+  <div class='column is-2'>
+    <div class='field'>
+      <input class='control input' id='cityInput' type='text' placeholder='Enter City Here' />
+    </div>
   </div>
 
   <!-- Four Dropdown menus -->
+  <!--! Dropdown menu for Species -->
+  <div class='column is-1'>
+    <div class='field select'>
+      <select class='control' id='dropdownSpecies'>
+        <option value='' disabled selected>Species</option>
+        <option value='dog'>dog</option>
+        <option value='cat'>cat</option>
+      </select>
+    </div>
+  </div>
 
-  <!-- {{! Dropdown menu for Species }} -->
-  <select id='dropdownSpecies'>
-    <option value='' disabled selected>Species</option>
-    <option value='dog'>dog</option>
-    <option value='cat'>cat</option>
-  </select>
+  <!--! Dropdown menu for Age -->
+  <div class='column is-1'>
+    <div class='field select'>
+      <select class='control' id='dropdownAge'>
+        <option value='' disabled selected>Age</option>
+        <option value='puppyKitten'>puppy/kitten</option>
+        <option value='youngAdult'>young adult (1-2 years)</option>
+        <option value='adult'>adult (3-6 years)</option>
+        <option value='mature'>mature (7-10 years)</option>
+        <option value='senior'>senior (11-14 years)</option>
+        <option value='geriatric'>geriatric (15+ years)</option>
+      </select>
+    </div>
+  </div>
 
-  <!-- {{! Dropdown menu for Age }} -->
-  <select id='dropdownAge'>
-    <option value='' disabled selected>Age</option>
-    <option value='puppyKitten'>puppy/kitten</option>
-    <option value='youngAdult'>young adult (1-2 years)</option>
-    <option value='adult'>adult (3-6 years)</option>
-    <option value='mature'>mature (7-10 years)</option>
-    <option value='senior'>senior (11-14 years)</option>
-    <option value='geriatric'>geriatric (15+ years)</option>
-  </select>
+  <!--! Dropdown menu for Sex -->
+  <div class='column is-1'>
+    <div class='field select'>
+      <select class='control' id='dropdownSex'>
+        <option value='' disabled selected>Sex</option>
+        <option value='female'>female</option>
+        <option value='male'>male</option>
+      </select>
+    </div>
+  </div>
 
-  <!-- {{! Dropdown menu for Sex }} -->
-  <select id='dropdownSex'>
-    <option value='' disabled selected>Sex</option>
-    <option value='female'>female</option>
-    <option value='male'>male</option>
-  </select>
-
-  <!-- {{! Dropdown menu for Size }} -->
-  <select id='dropdownSize'>
-    <option value='' disabled selected>Size</option>
-    <option value='xsmall'>x-small (8lbs or less)</option>
-    <option value='small'>small (9-25lbs)</option>
-    <option value='medium'>medium (24-55lbs)-</option>
-    <option value='large'>large (60-85lbs)-</option>
-    <option value='xlarge'>x-large (85lbs+)-</option>
-
-  </select>
-
-  <button id='searchForPetsBtn' type='submit'>Search For Pets</button>
+  <!--! Dropdown menu for Size -->
+  <div class='column is-1'>
+    <div class='field select'>
+      <select class='control' id='dropdownSize'>
+        <option value='' disabled selected>Size</option>
+        <option value='xsmall'>x-small (8lbs or less)</option>
+        <option value='small'>small (9-25lbs)</option>
+        <option value='medium'>medium (24-55lbs)-</option>
+        <option value='large'>large (60-85lbs)-</option>
+        <option value='xlarge'>x-large (85lbs+)-</option>
+      </select>
+    </div>
+  </div>
+  <!-- submit button -->
+  <div class='column is-1'>
+    <div class='field'>
+      <p class='control'>
+        <button class='button' id='searchForPetsBtn' type='submit'>
+          Search Pets
+        </button>
+      </p>
+    </div>
+  </div>
 </form>
 
-<!-- {{! Pet Cards }}
-{{! Will loop through the returned array of pet objects and create cards for each pet }} -->
-<div id='searchedPetCards'>
-
-</div>
+{{! TODO: Fix this broken loop, andtweak styling }}
+<!-- Adoptable Animal Cards -->
+<section class='columns is-centered is-multiline is-3 m-3' id='searchedPetCards'>
+  <!-- Loop over each object in the petData array -->
+  {{#each pets as |pet|}}
+    <div class='bgc-lTeal card column is-one-quarter m-3'>
+      <div>
+        <p class='has-text-centered is-size-3 p-2'>{{pet.name}}</p>
+      </div>
+      <div class='card-image'>
+        <figure class='image is-4by3'>
+          <img src='https://bulma.io/images/placeholders/1280x960.png' alt='Placeholder image' />
+        </figure>
+      </div>
+      <div class='card-content has-text-centered'>
+        <div class='content'>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.species}}</p>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.breed}}</p>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.sex}}</p>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.age}}</p>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.size}}</p>
+          <p class='has-text-centered is-size-3 p-2'>{{pet.city}}</p>
+        </div>
+      </div>
+    </div>
+  {{/each}}
+</section>
 
 <script src='./js/petsearch.js'></script>
