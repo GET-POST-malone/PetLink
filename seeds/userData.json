@@ -16,5 +16,29 @@
     "email": "amiko2k20@aol.com",
     "city": "niles",
     "password": "password12345"
+  },
+  {
+    "name": "Alli",
+    "email": "alli99@aol.com",
+    "city": "chicago",
+    "password": "password21312345"
+  },
+  {
+    "name": "Ron",
+    "email": "Ron20@aol.com",
+    "city": "skokie",
+    "password": "password1542345"
+  },
+  {
+    "name": "Brad",
+    "email": "brad923j@aol.com",
+    "city": "des plaines",
+    "password": "password12341235"
+  },
+  {
+    "name": "Stephanine",
+    "email": "stef712@aol.com",
+    "city": "mount propsect",
+    "password": "password18672345"
   }
 ]
