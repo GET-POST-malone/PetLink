@@ -50,6 +50,20 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/', async (req, res) => {
+  const pet = {
+    ...req.body,
+    login_id: req.session.user_id,
+  };
+  try {
+    const petData = await Pet.create(pet);
+
+    res.status(200).json(petData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // TODO: Jon updates to add a pet
 router.put('/:id', async (req, res) => {
   console.log(req);

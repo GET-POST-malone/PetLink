@@ -4,43 +4,41 @@ const newFormHandler = async (event) => {
   hideElementById('petAddError');
 
   // set petName variable and assign trimmed string
-  const petName = document.getElementById('pet-name').value.trim();
+  const name = document.getElementById('pet-name').value.trim();
 
   // set petSpecies and assign dropdown menu value selected
   const dropdownSpecies = document.getElementById('pet-species');
-  const petSpecies = dropdownSpecies.options[dropdownSpecies.selectedIndex].value;
+  const species = dropdownSpecies.options[dropdownSpecies.selectedIndex].value;
 
   // set petBreed variable and assign trimmed string
-  const petBreed = document.getElementById('pet-breed').value.trim();
+  const breed = document.getElementById('pet-breed').value.trim();
 
   // set petSex and assign dropdown menu value selected
   const dropdownSex = document.getElementById('pet-sex');
-  const petSex = dropdownSex.options[dropdownSex.selectedIndex].value;
+  const sex = dropdownSex.options[dropdownSex.selectedIndex].value;
 
   // set petAge and assign dropdown menu value selected
   const dropdownAge = document.getElementById('pet-age');
-  const petAge = dropdownAge.options[dropdownAge.selectedIndex].value;
+  const age = dropdownAge.options[dropdownAge.selectedIndex].value;
 
   // set petSize and assign dropdown menu value selected
   const dropdownSize = document.getElementById('pet-size');
-  const petSize = dropdownSize.options[dropdownSize.selectedIndex].value;
+  const size = dropdownSize.options[dropdownSize.selectedIndex].value;
 
   // set petName variable and assign string set to lowercase
-  let petCity = document.getElementById('pet-city').value.toLowerCase();
+  let city = document.getElementById('pet-city').value.toLowerCase();
 
-  //TODO: add login_id
-
-  if (petName && petSpecies && petBreed && petSex && petAge && petSize && petCity) {
+  if (name && species && breed && sex && age && size && city) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
-      body: JSON.stringify({ petName, petSpecies, petBreed, petSex, petAge, petSize, petCity }),
+      body: JSON.stringify({ name, species, breed, sex, age, size, city }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
 
     if (response.ok) {
-      document.location.replace('/pets');
+      document.location.reload();
     } else {
       alert('Failed to add new pet');
     }
@@ -58,7 +56,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/pets');
+      document.location.reload();
     } else {
       alert('Failed to delete pet');
     }

@@ -55,7 +55,7 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
   if (response.ok) {
     const data = await response.json();
     console.log(data);
-    handleResults(data);
+    // handleResults(data);
   } else {
     alert('Search failed');
   }
