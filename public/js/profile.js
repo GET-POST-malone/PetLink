@@ -1,3 +1,5 @@
+let image = '';
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -31,7 +33,7 @@ const newFormHandler = async (event) => {
   if (name && species && breed && sex && age && size && city) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
-      body: JSON.stringify({ name, species, breed, sex, age, size, city }),
+      body: JSON.stringify({ name, species, breed, sex, age, size, image, city }),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -73,12 +75,30 @@ function hideElementById(element) {
   document.getElementById(element).classList.add('hidden');
 }
 
-// event handlers
-
-document.getElementById('new-pet-form').addEventListener('submit', newFormHandler);
-
 // If any pets exist, add an event listener
 let petList = document.getElementById('pet-list');
 if (petList) {
   petList.addEventListener('click', delButtonHandler);
 }
+
+var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
+  if (!error && result && result.event === 'success') {
+    console.log('Done! Here is the image info: ', result.info);
+  }
+});
+document.getElementById('upload_widget').addEventListener('click', function () {
+  cloudinary.openUploadWidget(
+    {
+      cloudName: 'drrs0fxtr',
+      uploadPreset: 'nuopjdut',
+      showAdvancedOptions: true,
+    },
+    (error, result) => {
+      image = result.info.secure_url;
+    }
+  ),
+    false;
+});
+// event handlers
+
+document.getElementById('addPetBtn').addEventListener('click', newFormHandler);

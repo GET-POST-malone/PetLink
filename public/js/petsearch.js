@@ -69,9 +69,9 @@ function handleResults(data) {
     const newPetDiv = document.createElement('div');
 
     // create the img element, add the image source link, and append to div
-    // const newPetImg = document.createElement('IMG');
-    // newPetImg.src = petObj.img;
-    // newPetDiv.appendChild(newPetImg);
+    const newPetImg = document.createElement('IMG');
+    newPetImg.src = petObj.image;
+    newPetDiv.appendChild(newPetImg);
 
     // create text node with pet name and append to div
     const petName = document.createTextNode(petObj.name);
