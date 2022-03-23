@@ -43,8 +43,6 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
   // add the age query parameter: if ageSelected is not blank, then add age=ageSelected into the url otherwise return all pets
   url = size !== '' ? (url += `size=${size}&`) : url;
 
-  // fet to GET pets with city parameter (only city parameter for now)
-
   const response = await fetch(url, {
     method: 'GET',
     headers: {
@@ -62,50 +60,71 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
 }
 
 function handleResults(data) {
-  // TODO: clear search div before looping
+  // clear search div before looping
+  document.getElementById('searchedPetCards').innerHTML = '';
 
   // create new route
   // petsearch?ids=1,2,3
 
   data.forEach(function (petObj) {
     // create the div to hold the pet card
-    const newPetDiv = document.createElement('div');
+    const newPetCard = document.createElement('div');
+    // add classes to div
+    newPetCard.classList.add('bgc-lTeal', 'card', 'column', 'is-one-quarter', 'm-3');
+
+    // create p element with pet name and append to div
+    const petName = document.createElement('p');
+    petName.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petName.innerHTML = petObj.name;
+    newPetCard.appendChild(petName);
 
     // create the img element, add the image source link, and append to div
     const newPetImg = document.createElement('IMG');
+    newPetImg.classList.add('image', 'is-4by3');
     newPetImg.src = petObj.image;
-    newPetDiv.appendChild(newPetImg);
+    newPetCard.appendChild(newPetImg);
 
-    // create text node with pet name and append to div
-    const petName = document.createTextNode(petObj.name);
-    newPetDiv.appendChild(petName);
+    // create p element with species and append to div
+    const petSpecies = document.createElement('p');
+    petSpecies.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petSpecies.innerHTML = petObj.species;
+    newPetCard.appendChild(petSpecies);
 
-    // create text node with species and append to div
-    const petSpecies = document.createTextNode(petObj.species);
-    newPetDiv.appendChild(petSpecies);
+    // create p element with breed and append to div
+    const petBreed = document.createElement('p');
+    petBreed.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petBreed.innerHTML = petObj.breed;
+    newPetCard.appendChild(petBreed);
 
-    // create text node with breed and append to div
-    const petBreed = document.createTextNode(petObj.breed);
-    newPetDiv.appendChild(petBreed);
+    // create p element with sex and append to div
+    const petSex = document.createElement('p');
+    petSex.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petSex.innerHTML = petObj.sex;
+    newPetCard.appendChild(petSex);
 
-    // create text node with sex and append to div
-    const petSex = document.createTextNode(petObj.sex);
-    newPetDiv.appendChild(petSex);
+    // create p element with age and append to div
+    const petAge = document.createElement('p');
+    petAge.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    if (petObj.age === 'youngAdult') {
+      petObj.age = 'young adult';
+    }
+    petAge.innerHTML = petObj.age;
+    newPetCard.appendChild(petAge);
 
-    // create text node with age and append to div
-    const petAge = document.createTextNode(petObj.age);
-    newPetDiv.appendChild(petAge);
+    // create p element with size and append to div
+    const petSize = document.createElement('p');
+    petSize.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petSize.innerHTML = petObj.size;
+    newPetCard.appendChild(petSize);
 
-    // create text node with size and append to div
-    const petSize = document.createTextNode(petObj.size);
-    newPetDiv.appendChild(petSize);
-
-    // create text node with city and append to div
-    const petCity = document.createTextNode(petObj.city);
-    newPetDiv.appendChild(petCity);
+    // create p element with city and append to div
+    const petCity = document.createElement('p');
+    petCity.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petCity.innerHTML = petObj.city;
+    newPetCard.appendChild(petCity);
 
     // append the new pet div to the searchedPetCards div
-    searchedPetCards.append(newPetDiv);
+    searchedPetCards.append(newPetCard);
   });
 }
 

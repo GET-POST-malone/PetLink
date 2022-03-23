@@ -64,7 +64,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// TODO: Jon updates to add a pet
+// Put to update a pet
 router.put('/:id', async (req, res) => {
   console.log(req);
   try {
@@ -83,7 +83,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// TODO: Jon delete a pet
+// Delete a pet
 router.delete('/:id', withAuth, async (req, res) => {
   console.log('you hit the delete');
   try {
