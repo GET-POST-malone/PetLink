@@ -123,6 +123,12 @@ function handleResults(data) {
     petCity.innerHTML = petObj.city;
     newPetCard.appendChild(petCity);
 
+    // create a p element with contact email and append to div
+    const petOwnerEmail = document.createElement('p');
+    petOwnerEmail.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    petOwnerEmail.innerHTML = petObj.login.email;
+    newPetCard.appendChild(petOwnerEmail);
+
     // append the new pet div to the searchedPetCards div
     searchedPetCards.append(newPetCard);
   });

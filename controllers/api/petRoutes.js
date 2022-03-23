@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Pet } = require('../../models');
+const { Pet, Login } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -38,7 +38,13 @@ router.get('/', async (req, res) => {
 
     // find all including all queries in where clause object
     const petData = await Pet.findAll({
-      where: whereClause,
+      include: [
+        {
+          model: Login,
+          required: true,
+          where: whereClause,
+        },
+      ],
     });
 
     // Serialize data so the template can read it
