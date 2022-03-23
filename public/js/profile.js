@@ -1,3 +1,5 @@
+let image = '';
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -79,11 +81,12 @@ if (petList) {
   petList.addEventListener('click', delButtonHandler);
 }
 
-var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
-  if (!error && result && result.event === 'success') {
-    console.log('Done! Here is the image info: ', result.info);
-  }
-});
+// var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
+//   if (!error && result && result.event === 'success') {
+//     console.log('Done! Here is the image info: ', result.info);
+//   }
+// });
+
 document.getElementById('upload_widget').addEventListener('click', function () {
   cloudinary.openUploadWidget(
     {
@@ -92,8 +95,10 @@ document.getElementById('upload_widget').addEventListener('click', function () {
       showAdvancedOptions: true,
     },
     (error, result) => {
-      let image = result.info.secure_url;
-      console.log(image);
+      if (!error && result && result.event === 'success') {
+        image = result.info.secure_url;
+        console.log(image);
+      }
     }
   ),
     false;
