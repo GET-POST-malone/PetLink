@@ -1,5 +1,3 @@
-let image = '';
-
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -30,7 +28,7 @@ const newFormHandler = async (event) => {
   // set petName variable and assign string set to lowercase
   let city = document.getElementById('pet-city').value.toLowerCase();
 
-  if (name && species && breed && sex && age && size && city) {
+  if (name && species && breed && sex && age && size && image && city) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({ name, species, breed, sex, age, size, image, city }),
@@ -94,7 +92,8 @@ document.getElementById('upload_widget').addEventListener('click', function () {
       showAdvancedOptions: true,
     },
     (error, result) => {
-      image = result.info.secure_url;
+      let image = result.info.secure_url;
+      console.log(image);
     }
   ),
     false;
