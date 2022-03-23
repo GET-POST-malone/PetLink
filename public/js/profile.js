@@ -1,3 +1,4 @@
+// set image variable so it can be updated via cloudinary widget
 let image = '';
 
 const newFormHandler = async (event) => {
@@ -42,7 +43,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to add new pet');
+      console.log('Failed to add new pet');
     }
   } else {
     showElementById('petAddError');
@@ -60,7 +61,7 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to delete pet');
+      console.log('Failed to delete pet');
     }
   }
 };
