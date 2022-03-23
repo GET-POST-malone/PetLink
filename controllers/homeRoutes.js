@@ -30,6 +30,7 @@ router.get('/', async (req, res) => {
 
 // add route to petsearch page
 router.get('/petsearch', async (req, res) => {
+  // add Pet.findAll with where id = the ids passed in (response.query.id)
   try {
     res.render('petsearch', {
       logged_in: req.session.logged_in,
