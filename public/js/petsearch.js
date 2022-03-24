@@ -78,9 +78,14 @@ function handleResults(data) {
     petName.innerHTML = petObj.name;
     newPetCard.appendChild(petName);
 
-    // create the img element, add the image source link, and append to div
+    // create an image-card div, create the img element, add the image source link, and append to div
+    const newImageCard = document.createElement('div');
+    newImageCard.classList.add('card-image');
+    const newImageFigure = document.createElement('figure');
+    newImageFigure.classList.add('image', 'is-4by3');
+    newImageCard.appendChild(newImageFigure);
     const newPetImg = document.createElement('IMG');
-    newPetImg.classList.add('image', 'is-4by3');
+    newImageFigure.appendChild(newPetImg);
     // if there is no image provide placeholder
     if (petObj.image === null) {
       petObj.image = '/img/placeholder_no_image_available.png';
