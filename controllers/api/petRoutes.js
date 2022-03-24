@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Pet } = require('../../models');
+const { Pet, Login } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
@@ -38,6 +38,13 @@ router.get('/', async (req, res) => {
 
     // find all including all queries in where clause object
     const petData = await Pet.findAll({
+      include: [
+        {
+          model: Login,
+          required: true,
+          attributes: ['email'],
+        },
+      ],
       where: whereClause,
     });
 
@@ -64,7 +71,7 @@ router.post('/', async (req, res) => {
   }
 });
 
-// TODO: Jon updates to add a pet
+// Put to update a pet
 router.put('/:id', async (req, res) => {
   console.log(req);
   try {
@@ -83,7 +90,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// TODO: Jon delete a pet
+// Delete a pet
 router.delete('/:id', withAuth, async (req, res) => {
   console.log('you hit the delete');
   try {

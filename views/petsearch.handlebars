@@ -1,6 +1,6 @@
 <!-- welcome and prompt -->
 <div class='m-4'>
-  <h2 class='c-dTeal has-text-centered title'>Welcome [NAME]</h2>
+  <h2 class='c-dTeal has-text-centered title'>Search For Pets</h2>
   <p class='c-dTeal has-text-centered subtitle'>Enter Your search criteria below to find Chicagoland pets looking for new homes!</p>
 </div>
 
@@ -29,7 +29,8 @@
     <div class='field select'>
       <select class='control' id='dropdownAge'>
         <option value='' disabled selected>Age</option>
-        <option value='puppyKitten'>puppy/kitten</option>
+        <option value='puppy'>puppy</option>
+        <option value='kitten'>kitten</option>
         <option value='youngAdult'>young adult (1-2 years)</option>
         <option value='adult'>adult (3-6 years)</option>
         <option value='mature'>mature (7-10 years)</option>
@@ -80,7 +81,7 @@
 <!-- Adoptable Animal Cards -->
 <section class='columns is-centered is-multiline is-3 m-3' id='searchedPetCards'>
   <!-- Loop over each object in the petData array -->
-  {{#each pets as |pet|}}
+  {{!-- {{#each pets as |pet|}}
     <div class='bgc-lTeal card column is-one-quarter m-3'>
       <div>
         <p class='has-text-centered is-size-3 p-2'>{{pet.name}}</p>
@@ -101,7 +102,7 @@
         </div>
       </div>
     </div>
-  {{/each}}
+  {{/each}} --}}
 </section>
 
 <script src='./js/petsearch.js'></script>

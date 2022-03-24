@@ -1,3 +1,4 @@
+// set image variable so it can be updated via cloudinary widget
 let image = '';
 
 const newFormHandler = async (event) => {
@@ -28,9 +29,9 @@ const newFormHandler = async (event) => {
   const size = dropdownSize.options[dropdownSize.selectedIndex].value;
 
   // set petName variable and assign string set to lowercase
-  let city = document.getElementById('pet-city').value.toLowerCase();
+  const city = document.getElementById('pet-city').value.toLowerCase().trim();
 
-  if (name && species && breed && sex && age && size && city) {
+  if (name && species && breed && sex && age && size && image && city) {
     const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({ name, species, breed, sex, age, size, image, city }),
@@ -42,7 +43,7 @@ const newFormHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to add new pet');
+      console.log('Failed to add new pet');
     }
   } else {
     showElementById('petAddError');
@@ -60,7 +61,7 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      alert('Failed to delete pet');
+      console.log('Failed to delete pet');
     }
   }
 };
@@ -81,11 +82,12 @@ if (petList) {
   petList.addEventListener('click', delButtonHandler);
 }
 
-var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
-  if (!error && result && result.event === 'success') {
-    console.log('Done! Here is the image info: ', result.info);
-  }
-});
+// var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
+//   if (!error && result && result.event === 'success') {
+//     console.log('Done! Here is the image info: ', result.info);
+//   }
+// });
+
 document.getElementById('upload_widget').addEventListener('click', function () {
   cloudinary.openUploadWidget(
     {
@@ -94,7 +96,10 @@ document.getElementById('upload_widget').addEventListener('click', function () {
       showAdvancedOptions: true,
     },
     (error, result) => {
-      image = result.info.secure_url;
+      if (!error && result && result.event === 'success') {
+        image = result.info.secure_url;
+        console.log(image);
+      }
     }
   ),
     false;

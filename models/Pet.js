@@ -48,7 +48,7 @@ Pet.init(
     login_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'login',
+        model: 'Login',
         key: 'id',
       },
     },
