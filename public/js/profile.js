@@ -29,7 +29,7 @@ const newFormHandler = async (event) => {
   const size = dropdownSize.options[dropdownSize.selectedIndex].value;
 
   // set petName variable and assign string set to lowercase
-  let city = document.getElementById('pet-city').value.toLowerCase();
+  const city = document.getElementById('pet-city').value.toLowerCase().trim();
 
   if (name && species && breed && sex && age && size && image && city) {
     const response = await fetch(`/api/pets`, {

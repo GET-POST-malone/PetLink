@@ -42,9 +42,10 @@ router.get('/', async (req, res) => {
         {
           model: Login,
           required: true,
-          where: whereClause,
+          attributes: ['email'],
         },
       ],
+      where: whereClause,
     });
 
     // Serialize data so the template can read it

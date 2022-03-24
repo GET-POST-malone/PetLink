@@ -81,7 +81,12 @@ function handleResults(data) {
     // create the img element, add the image source link, and append to div
     const newPetImg = document.createElement('IMG');
     newPetImg.classList.add('image', 'is-4by3');
+    // if there is no image provide placeholder
+    if (petObj.image === null) {
+      petObj.image = '/img/placeholder_no_image_available.png';
+    }
     newPetImg.src = petObj.image;
+
     newPetCard.appendChild(newPetImg);
 
     // create p element with species and append to div
