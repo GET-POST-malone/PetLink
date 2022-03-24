@@ -98,5 +98,15 @@
     "size": "medium",
     "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648066858/download_zx8tvl.jpg",
     "city": "chicago"
+  },
+  {
+    "name": "whiskey",
+    "species": "dog",
+    "breed": "lab",
+    "sex": "male",
+    "age": "adult",
+    "size": "large",
+    "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648056110/amghq5shh6glulahrxws.png",
+    "city": "egypt"
   }
 ]
