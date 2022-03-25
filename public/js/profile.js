@@ -98,7 +98,7 @@ document.getElementById('upload_widget').addEventListener('click', function () {
     (error, result) => {
       if (!error && result && result.event === 'success') {
         image = result.info.secure_url;
-        document.getElementById('imageUploadVerification').innerHTML = `Uploaded the following file: ${image}`;
+        document.getElementById('imageUploadVerification').innerHTML = `File Uploaded`;
       }
     }
   ),
