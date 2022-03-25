@@ -4,8 +4,6 @@ let image = '';
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  hideElementById('petAddError');
-
   // set petName variable and assign trimmed string
   const name = document.getElementById('pet-name').value.trim();
 
@@ -46,7 +44,16 @@ const newFormHandler = async (event) => {
       console.log('Failed to add new pet');
     }
   } else {
-    showElementById('petAddError');
+    // Get the snackbar DIV
+    var x = document.getElementById('snackbar');
+
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+    }, 3000);
   }
 };
 
@@ -66,27 +73,11 @@ const delButtonHandler = async (event) => {
   }
 };
 
-//utility function to show element by id
-function showElementById(element) {
-  document.getElementById(element).classList.remove('hidden');
-}
-
-//utility function to hide element by id
-function hideElementById(element) {
-  document.getElementById(element).classList.add('hidden');
-}
-
 // If any pets exist, add an event listener
 let petList = document.getElementById('pet-list');
 if (petList) {
   petList.addEventListener('click', delButtonHandler);
 }
-
-// var myWidget = cloudinary.createUploadWidget({ cloudName: 'drrs0fxtr', uploadPreset: 'nuopjdut' }, (error, result) => {
-//   if (!error && result && result.event === 'success') {
-//     console.log('Done! Here is the image info: ', result.info);
-//   }
-// });
 
 document.getElementById('upload_widget').addEventListener('click', function () {
   cloudinary.openUploadWidget(
@@ -104,6 +95,6 @@ document.getElementById('upload_widget').addEventListener('click', function () {
   ),
     false;
 });
-// event handlers
 
+// event handlers
 document.getElementById('addPetBtn').addEventListener('click', newFormHandler);
