@@ -31,6 +31,10 @@
   display: none;
 }
 
+.of-cover {
+  object-fit: cover;
+}
+
 .w-10 {
   width: 10%;
 }
@@ -116,14 +120,22 @@
 /* media queries */
 /* tablet */
 @media (max-width: 992px) {
-  .mq-img35 {
+  .mqTab-img35 {
     width: 35%;
   }
 }
 
 /* phone */
 @media (max-width: 576px) {
-  .mq-img50 {
+  .mqPh-fs1rem {
+    font-size: 1rem;
+  }
+
+  .mqPh-img50 {
     width: 50%;
+  }
+
+  .mqPh-mb1rem {
+    margin-bottom: 1rem;
   }
 }
