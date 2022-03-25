@@ -6,7 +6,7 @@
 
 <!--! city input -->
 <form action='' class='columns is-centered'>
-  <div class='column is-2'>
+  <div class='column is-2 offset-1'>
     <div class='field'>
       <input class='control input' id='cityInput' type='text' placeholder='Enter City Here' />
     </div>
@@ -14,9 +14,9 @@
 
   <!-- Four Dropdown menus -->
   <!--! Dropdown menu for Species -->
-  <div class='column is-1'>
-    <div class='field select'>
-      <select class='control' id='dropdownSpecies'>
+  <div class='column is-2'>
+    <div class='field select w-100'>
+      <select class='control w-100' id='dropdownSpecies'>
         <option value='' disabled selected>Species</option>
         <option value='dog'>dog</option>
         <option value='cat'>cat</option>
@@ -25,9 +25,9 @@
   </div>
 
   <!--! Dropdown menu for Age -->
-  <div class='column is-1'>
-    <div class='field select'>
-      <select class='control' id='dropdownAge'>
+  <div class='column is-2'>
+    <div class='field select w-100'>
+      <select class='control w-100' id='dropdownAge'>
         <option value='' disabled selected>Age</option>
         <option value='puppy'>puppy</option>
         <option value='kitten'>kitten</option>
@@ -41,9 +41,9 @@
   </div>
 
   <!--! Dropdown menu for Sex -->
-  <div class='column is-1'>
-    <div class='field select'>
-      <select class='control' id='dropdownSex'>
+  <div class='column is-2'>
+    <div class='field select w-100'>
+      <select class='control w-100' id='dropdownSex'>
         <option value='' disabled selected>Sex</option>
         <option value='female'>female</option>
         <option value='male'>male</option>
@@ -52,9 +52,9 @@
   </div>
 
   <!--! Dropdown menu for Size -->
-  <div class='column is-1'>
-    <div class='field select'>
-      <select class='control' id='dropdownSize'>
+  <div class='column is-2'>
+    <div class='field select w-100'>
+      <select class='control w-100' id='dropdownSize'>
         <option value='' disabled selected>Size</option>
         <option value='xsmall'>x-small (8lbs or less)</option>
         <option value='small'>small (9-25lbs)</option>
@@ -70,39 +70,15 @@
     <div class='field'>
       <p class='control'>
         <button class='button' id='searchForPetsBtn' type='submit'>
-          Search Pets
+          Go!
         </button>
       </p>
     </div>
   </div>
 </form>
 
-{{! TODO: Fix this broken loop, andtweak styling }}
-<!-- Adoptable Animal Cards -->
 <section class='columns is-centered is-multiline is-3 m-3' id='searchedPetCards'>
-  <!-- Loop over each object in the petData array -->
-  {{!-- {{#each pets as |pet|}}
-    <div class='bgc-lTeal card column is-one-quarter m-3'>
-      <div>
-        <p class='has-text-centered is-size-3 p-2'>{{pet.name}}</p>
-      </div>
-      <div class='card-image'>
-        <figure class='image is-4by3'>
-          <img src='https://bulma.io/images/placeholders/1280x960.png' alt='Placeholder image' />
-        </figure>
-      </div>
-      <div class='card-content has-text-centered'>
-        <div class='content'>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.species}}</p>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.breed}}</p>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.sex}}</p>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.age}}</p>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.size}}</p>
-          <p class='has-text-centered is-size-3 p-2'>{{pet.city}}</p>
-        </div>
-      </div>
-    </div>
-  {{/each}} --}}
+
 </section>
 
 <script src='./js/petsearch.js'></script>

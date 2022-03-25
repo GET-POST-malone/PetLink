@@ -35,6 +35,10 @@
   width: 10%;
 }
 
+.w-100 {
+  width: 100%;
+}
+
 /* The snackbar - position it at the bottom and in the middle of the screen */
 #snackbar {
   visibility: hidden; /* Hidden by default. Visible on click */
@@ -102,5 +106,20 @@
   to {
     bottom: 0;
     opacity: 0;
+  }
+}
+
+/* media queries */
+/* tablet */
+@media (max-width: 992px) {
+  .mq-img35 {
+    width: 35%;
+  }
+}
+
+/* phone */
+@media (max-width: 576px) {
+  .mq-img50 {
+    width: 50%;
   }
 }
