@@ -82,8 +82,8 @@ function handleResults(data) {
     const newImageCard = document.createElement('div');
     newImageCard.classList.add('card-image');
     const newImageFigure = document.createElement('figure');
-    newImageFigure.classList.add('image', 'is-4by3');
     newImageCard.appendChild(newImageFigure);
+    newImageFigure.classList.add('image', 'is-4by3');
     const newPetImg = document.createElement('IMG');
     newImageFigure.appendChild(newPetImg);
     // if there is no image provide placeholder
@@ -92,52 +92,65 @@ function handleResults(data) {
     }
     newPetImg.src = petObj.image;
 
-    newPetCard.appendChild(newPetImg);
+    newPetCard.appendChild(newImageCard);
+
+    // create card-content div to contain content div
+    const cardContentDiv = document.createElement('div');
+    cardContentDiv.classList.add('card-content', 'p-2');
+    newPetCard.appendChild(cardContentDiv);
+
+    // create content div containing all ptags with p-tags with animal details
+    const detailCard = document.createElement('div');
+    detailCard.classList.add('bgc-peach', 'br-15', 'c-dTeal', 'content', 'has-text-centered', 'has-text-weight-semibold', 'p-3');
+    cardContentDiv.append(detailCard);
 
     // create p element with species and append to div
     const petSpecies = document.createElement('p');
-    petSpecies.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petSpecies.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSpecies.innerHTML = petObj.species;
-    newPetCard.appendChild(petSpecies);
+    detailCard.appendChild(petSpecies);
 
     // create p element with breed and append to div
     const petBreed = document.createElement('p');
-    petBreed.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petBreed.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petBreed.innerHTML = petObj.breed;
-    newPetCard.appendChild(petBreed);
+    detailCard.appendChild(petBreed);
 
     // create p element with sex and append to div
     const petSex = document.createElement('p');
-    petSex.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petSex.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSex.innerHTML = petObj.sex;
-    newPetCard.appendChild(petSex);
+    detailCard.appendChild(petSex);
 
     // create p element with age and append to div
     const petAge = document.createElement('p');
-    petAge.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petAge.classList.add('has-text-centered', 'is-size-3', 'p-2');
     if (petObj.age === 'youngAdult') {
       petObj.age = 'young adult';
     }
     petAge.innerHTML = petObj.age;
-    newPetCard.appendChild(petAge);
+    detailCard.appendChild(petAge);
 
     // create p element with size and append to div
     const petSize = document.createElement('p');
-    petSize.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petSize.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSize.innerHTML = petObj.size;
-    newPetCard.appendChild(petSize);
+    detailCard.appendChild(petSize);
 
     // create p element with city and append to div
     const petCity = document.createElement('p');
-    petCity.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petCity.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petCity.innerHTML = petObj.city;
-    newPetCard.appendChild(petCity);
+    detailCard.appendChild(petCity);
 
     // create a p element with contact email and append to div
     const petOwnerEmail = document.createElement('p');
-    petOwnerEmail.classList.add('has-text-centered', 'is-size-3', 'p-2');
+    // petOwnerEmail.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petOwnerEmail.innerHTML = petObj.login.email;
-    newPetCard.appendChild(petOwnerEmail);
+    detailCard.appendChild(petOwnerEmail);
+
+    // append detailCard to newPetCard
+    newPetCard.append(detailCard);
 
     // append the new pet div to the searchedPetCards div
     searchedPetCards.append(newPetCard);
