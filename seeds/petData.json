@@ -108,5 +108,45 @@
     "size": "large",
     "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648056110/amghq5shh6glulahrxws.png",
     "city": "egypt"
+  },
+  {
+    "name": "duchess",
+    "species": "dog",
+    "breed": "cockapoo",
+    "sex": "female",
+    "age": "puppy",
+    "size": "xsmall",
+    "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648167057/Cockapoo-Puppy_vjgtc4.jpg",
+    "city": "mount propsect"
+  },
+  {
+    "name": "koda",
+    "species": "dog",
+    "breed": "collie",
+    "sex": "female",
+    "age": "young adult",
+    "size": "large",
+    "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648167191/Collie_bk9dtt.jpg",
+    "city": "harwood heights"
+  },
+  {
+    "name": "peanut",
+    "species": "cat",
+    "breed": "collie",
+    "sex": "female",
+    "age": "kitten",
+    "size": "xsmall",
+    "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648167334/Domestic-Mediumhair_Brown-Tabby_kbiaqp.jpg",
+    "city": "naperville"
+  },
+  {
+    "name": "milo",
+    "species": "dog",
+    "breed": "hound",
+    "sex": "male",
+    "age": "puppy",
+    "size": "small",
+    "image": "https://res.cloudinary.com/drrs0fxtr/image/upload/v1648167447/Hound-Mix_q8zrrb.jpg",
+    "city": "chicago"
   }
 ]

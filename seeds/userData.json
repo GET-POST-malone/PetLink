@@ -8,7 +8,7 @@
   {
     "name": "Lernantino",
     "email": "lernantino@gmail.com",
-    "city": "niles",
+    "city": "naperville",
     "password": "password12345"
   },
   {
@@ -40,5 +40,29 @@
     "email": "stef712@aol.com",
     "city": "mount propsect",
     "password": "password18672345"
+  },
+  {
+    "name": "Leo",
+    "email": "leo2837@hotmail.com",
+    "city": "chicago",
+    "password": "pas21sword12345"
+  },
+  {
+    "name": "Luke",
+    "email": "luke729@hotmail.com",
+    "city": "egypt",
+    "password": "password123013"
+  },
+  {
+    "name": "Georgia",
+    "email": "atljojo69@hotmail.com",
+    "city": "harwood heights",
+    "password": "password123233245"
+  },
+  {
+    "name": "Alfredo",
+    "email": "bigal666@hotmail.com",
+    "city": "glen ellyn",
+    "password": "password1765432345"
   }
 ]
