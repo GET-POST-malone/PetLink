@@ -83,8 +83,9 @@ function handleResults(data) {
     newImageCard.classList.add('card-image');
     const newImageFigure = document.createElement('figure');
     newImageCard.appendChild(newImageFigure);
-    newImageFigure.classList.add('image', 'is-4by3');
+    newImageFigure.classList.add('image', 'is-square');
     const newPetImg = document.createElement('IMG');
+    newPetImg.classList.add('of-cover');
     newImageFigure.appendChild(newPetImg);
     // if there is no image provide placeholder
     if (petObj.image === null) {
