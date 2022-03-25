@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
 });
 
 // add route to petsearch page
-router.get('/petsearch', async (req, res) => {
+router.get('/petsearch', withAuth, async (req, res) => {
   // add Pet.findAll with where id = the ids passed in (response.query.id)
   try {
     res.render('petsearch', {
