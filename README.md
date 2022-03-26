@@ -38,9 +38,16 @@ When the user clicks on the Search Pets on the Homepage or are directed here fro
 - Rehome A Pet
 When the user clicks on the Rehome A Pet link on the Homepage, they are presented with the same top image and hero banner as the Homepage. There is a welcome message below the hero, and a prompt to fill out the pet's information. The user can enter the Pet's name, species, breed, sex, age, size, and city. There is a button to upload an image of the pet. Once all the inputs are filled in, the dropdowns selected, and a pet image has been added, the user can click "Add Pet" to add that pet to their profile.  When a pet has been added, a new section titled "My Pets To Rehome:", and the name of the pet will appear with a "Delete" button next to it. The user can click on the "Delete" button to remove the pet from their list of pets.   
 
-### Screenshot
+### Screenshots
 
-!["screen shot of homepage"](./img)
+!["screenshot of homepage"](./public/img/petlink_ss_homepage.png)
+!["screenshot of login page"](./public/img/petlink_ss_login.png)
+!["screenshot of login page"](./public/img/petlink_ss_login.png)
+!["screenshot of pet search page"](./public/img/petlink_ss_searchpage.png)
+!["screenshot of pet search page after a search"](./public/img/petlink_ss_searchpage2.png)
+!["screenshot of rehome a pet page"](./public/img/petlink_ss_rehome.png)
+
+
 
 ## License
     
