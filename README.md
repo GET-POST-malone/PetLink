@@ -89,4 +89,4 @@ Sarah Ann Williams
 ## Links
 
 - Here is the repo: [GET-POST-malone/PetLink](https://www.github.com/GET-POST-malone/project_2)
-- Here is the heroku pages: [GET-POST-malone/pages](https://www.get-post-malone-project-2.herokuapp.com/)
+- Here is the heroku pages: [GET-POST-malone/pages](https://get-post-malone-project-2.herokuapp.com/)
