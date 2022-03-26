@@ -42,10 +42,10 @@ When the user clicks on the Rehome A Pet link on the Homepage, they are presente
 
 !["screenshot of homepage"](./public/img/petlink_ss_homepage.png)
 !["screenshot of login page"](./public/img/petlink_ss_login.png)
-!["screenshot of login page"](./public/img/petlink_ss_login.png)
+!["screenshot of rehome page"](./public/img/petlink_ss_rehome.png)
 !["screenshot of pet search page"](./public/img/petlink_ss_searchpage.png)
 !["screenshot of pet search page after a search"](./public/img/petlink_ss_searchpage2.png)
-!["screenshot of rehome a pet page"](./public/img/petlink_ss_rehome.png)
+
 
 
 
