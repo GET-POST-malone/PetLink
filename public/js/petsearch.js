@@ -83,6 +83,8 @@ function handleResults(data) {
     const newPetImg = document.createElement('IMG');
     newPetImg.classList.add('of-cover');
     newImageFigure.appendChild(newPetImg);
+    newPetImg.classList.add('of-cover');
+
     // if there is no image provide placeholder
     if (petObj.image === null) {
       petObj.image = '/img/placeholder_no_image_available.png';
