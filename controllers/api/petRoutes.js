@@ -3,13 +3,11 @@ const { Pet, Login } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get('/', async (req, res) => {
-  console.log('hit the route');
   try {
-    // Get all pets
-
+    // set variable for the where clause
     let whereClause = {};
 
-    // adds key:value to object for each query
+    // start filling this object with key:value for each query
 
     // add city
     if (req.query.city) {
@@ -36,7 +34,7 @@ router.get('/', async (req, res) => {
       whereClause.size = req.query.size;
     }
 
-    // find all including all queries in where clause object
+    // find all including all queries in the whereClause object
     const petData = await Pet.findAll({
       include: [
         {
@@ -73,7 +71,6 @@ router.post('/', async (req, res) => {
 
 // Put to update a pet
 router.put('/:id', async (req, res) => {
-  console.log(req);
   try {
     let petData = await Pet.update(req.body, {
       where: {
@@ -92,7 +89,6 @@ router.put('/:id', async (req, res) => {
 
 // Delete a pet
 router.delete('/:id', withAuth, async (req, res) => {
-  console.log('you hit the delete');
   try {
     const petData = await Pet.destroy({
       where: {

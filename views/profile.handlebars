@@ -114,11 +114,9 @@
     </div>
   </div>
 
-  {{! div to show error if all inputs are not filled in or dropdowns selected }}
-  <div id='snackbar'>Please fill out and select options for all fields before adding a pet.</div>
-  {{! <div>
-    <p id='petAddError' class='c-dTeal has-text-centered subtitle hidden'>Please fill out and select options for all fields before adding a pet.</p>
-  </div> }}
+  {{! snackbar div to temporarily show error if all inputs are not filled in or dropdowns selected }}
+  <div id='snackbar'></div>
+
 </div>
 
 {{! list of user's pets to rehome }}
@@ -141,61 +139,3 @@
 
 <script src='https://upload-widget.cloudinary.com/global/all.js'></script>
 <script src='/js/profile.js'></script>
-
-{{! <div class='form-group'>
-        <label for='pet-name'>pet name:</label>
-        <input class='form-input' type='text' id='pet-name' name='pet-name' />
-      </div> }}
-{{! 
-<div class='form-group'>
-  <label for='pet-species'>pet species:</label>
-  <select id='pet-species' name='pet-species'>
-    <option value='' disabled selected>Species</option>
-    <option value='dog'>dog</option>
-    <option value='cat'>cat</option>
-  </select>
-</div> }}
-
-{{! <div class='form-group'>
-  <label for='pet-breed'>breed:</label>
-  <textarea class='form-input' id='pet-breed' name='pet-breed'></textarea>
-</div> }}
-
-{{! <div class='form-group'>
-  <label for='pet-sex'>sex:</label>
-  <select id='pet-sex' name='pet-sex'>
-    <option value='' disabled selected>Sex</option>
-    <option value='female'>female</option>
-    <option value='male'>male</option>
-  </select>
-</div> }}
-
-{{! <div class='form-group'>
-  <label for='pet-age'>age:</label>
-  <select id='pet-age' name='pet-age'>
-    <option value='' disabled selected>Age</option>
-    <option value='puppyKitten'>puppy/kitten</option>
-    <option value='youngAdult'>young adult (1-2 years)</option>
-    <option value='adult'>adult (3-6 years)</option>
-    <option value='mature'>mature (7-10 years)</option>
-    <option value='senior'>senior (11-14 years)</option>
-    <option value='geriatric'>geriatric (15+ years)</option>
-  </select>
-</div> }}
-
-{{! <div class='form-group'>
-  <label for='pet-size'>size:</label>
-  <select id='pet-size' name='pet-size'>
-    <option value='' disabled selected>Size</option>
-    <option value='xsmall'>x-small (8lbs or less)</option>
-    <option value='small'>small (9-25lbs)</option>
-    <option value='medium'>medium (24-55lbs)-</option>
-    <option value='large'>large (60-85lbs)-</option>
-    <option value='xlarge'>x-large (85lbs+)-</option>
-  </select>
-</div> }}
-
-{{! <div class='form-group'>
-  <label for='pet-city'>city:</label>
-  <textarea class='form-input' id='pet-city' name='pet-city'></textarea>
-</div> }}

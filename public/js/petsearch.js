@@ -52,19 +52,15 @@ async function searchForPets(cityInput, speciesSelected, ageSelected, sexSelecte
 
   if (response.ok) {
     const data = await response.json();
-    console.log(data);
     handleResults(data);
   } else {
-    alert('Search failed');
+    console.log(`Search failed: ${response.statusText}`);
   }
 }
 
 function handleResults(data) {
   // clear search div before looping
   document.getElementById('searchedPetCards').innerHTML = '';
-
-  // create new route
-  // petsearch?ids=1,2,3
 
   data.forEach(function (petObj) {
     // create the div to hold the pet card
@@ -107,25 +103,21 @@ function handleResults(data) {
 
     // create p element with species and append to div
     const petSpecies = document.createElement('p');
-    // petSpecies.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSpecies.innerHTML = petObj.species;
     detailCard.appendChild(petSpecies);
 
     // create p element with breed and append to div
     const petBreed = document.createElement('p');
-    // petBreed.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petBreed.innerHTML = petObj.breed;
     detailCard.appendChild(petBreed);
 
     // create p element with sex and append to div
     const petSex = document.createElement('p');
-    // petSex.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSex.innerHTML = petObj.sex;
     detailCard.appendChild(petSex);
 
     // create p element with age and append to div
     const petAge = document.createElement('p');
-    // petAge.classList.add('has-text-centered', 'is-size-3', 'p-2');
     if (petObj.age === 'youngAdult') {
       petObj.age = 'young adult';
     }
@@ -134,19 +126,16 @@ function handleResults(data) {
 
     // create p element with size and append to div
     const petSize = document.createElement('p');
-    // petSize.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petSize.innerHTML = petObj.size;
     detailCard.appendChild(petSize);
 
     // create p element with city and append to div
     const petCity = document.createElement('p');
-    // petCity.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petCity.innerHTML = petObj.city;
     detailCard.appendChild(petCity);
 
     // create a p element with contact email and append to div
     const petOwnerEmail = document.createElement('p');
-    // petOwnerEmail.classList.add('has-text-centered', 'is-size-3', 'p-2');
     petOwnerEmail.innerHTML = petObj.login.email;
     detailCard.appendChild(petOwnerEmail);
 
