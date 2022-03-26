@@ -124,7 +124,11 @@
               <img class='of-cover' src='{{pet.image}}' alt='Placeholder image' />
             </figure>
           </div>
-          <button class='bgc-peach button c-dTeal has-text-weight-semibold is-medium is-centered m-3' data-id='{{pet.id}}'>DELETE</button>
+          <div class='columns is-centered is-mobile'>
+            <div class='column is-6 my-3'>
+              <button class='bgc-peach button c-dTeal has-text-weight-semibold is-medium' data-id='{{pet.id}}'>DELETE</button>
+            </div>
+          </div>
         </div>
 
       {{/each}}
