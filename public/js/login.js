@@ -20,7 +20,7 @@ const loginFormHandler = async (event) => {
       // Get the snackbar DIV
       var x = document.getElementById('snackbar');
 
-      x.innerHTML = 'Incorrect email/password. Please try again or sign up to log in.';
+      x.innerHTML = 'Login Error. Please try again or sign up to log in.';
 
       // Add the "show" class to DIV
       x.className = 'show';
@@ -54,7 +54,7 @@ const signupFormHandler = async (event) => {
       // Get the snackbar DIV
       var x = document.getElementById('snackbar');
 
-      x.innerHTML = 'User already exists. Please fill out email/password to log in.';
+      x.innerHTML = 'Error with sign up. Please try again.';
 
       // Add the "show" class to DIV
       x.className = 'show';
