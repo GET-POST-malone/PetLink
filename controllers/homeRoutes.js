@@ -3,7 +3,6 @@ const { Pet, Login } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
-  console.log('hit the route');
   try {
     // Get all projects and JOIN with login data
     const petData = await Pet.findAll({
@@ -17,7 +16,7 @@ router.get('/', async (req, res) => {
 
     // Serialize data so the template can read it
     const pets = petData.map((pet) => pet.get({ plain: true }));
-    console.log(pets);
+
     // Pass serialized data and session flag into template
     res.render('homepage', {
       pets,
@@ -50,7 +49,7 @@ router.get('/profile', withAuth, async (req, res) => {
     });
 
     const user = userData.get({ plain: true });
-    // changed user to login incase issue appears here ***************
+
     res.render('profile', {
       ...user,
       logged_in: true,

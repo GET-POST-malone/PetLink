@@ -1,6 +1,9 @@
 // set image variable so it can be updated via cloudinary widget
 let image = '';
 
+// declare snackbar div to variable x
+let x = document.getElementById('snackbar');
+
 const newFormHandler = async (event) => {
   event.preventDefault();
 
@@ -29,7 +32,9 @@ const newFormHandler = async (event) => {
   // set petName variable and assign string set to lowercase
   const city = document.getElementById('pet-city').value.toLowerCase().trim();
 
+  // if there are values for name, species, breed, sex, age, size, image, and city
   if (name && species && breed && sex && age && size && image && city) {
+    // POST to create a new pet
     const response = await fetch(`/api/pets`, {
       method: 'POST',
       body: JSON.stringify({ name, species, breed, sex, age, size, image, city }),
@@ -38,21 +43,33 @@ const newFormHandler = async (event) => {
       },
     });
 
+    // if response is ok, reload the page
     if (response.ok) {
       document.location.reload();
     } else {
-      console.log('Failed to add new pet');
+      // if response is not ok, temporarily show snackbar with failure
+      // add inner HTML
+      x.innerHTML = 'Failed to add new pet.';
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   } else {
-    // Get the snackbar DIV
-    var x = document.getElementById('snackbar');
-
+    // If values are missing, temporarily show snackbar to ask that user fills out all fields and selects all options
+    // add inner HTML
+    x.innerHTML = 'Please fill out and select options for all fields before adding a pet.';
     // Add the "show" class to DIV
     x.className = 'show';
 
-    // After 3 seconds, remove the show class from DIV
+    // After 3 seconds, remove the show class from DIV and clear inner HTML
     setTimeout(function () {
       x.className = x.className.replace('show', '');
+      x.innerHTML = '';
     }, 3000);
   }
 };
@@ -68,7 +85,17 @@ const delButtonHandler = async (event) => {
     if (response.ok) {
       document.location.reload();
     } else {
-      console.log('Failed to delete pet');
+      // temporarily show snackbar with error
+      // add inner HTML
+      x.innerHTML = 'Failed to delete pet.';
+      // Add the "show" class to DIV
+      x.className = 'show';
+
+      // After 3 seconds, remove the show class from DIV and clear inner HTML
+      setTimeout(function () {
+        x.className = x.className.replace('show', '');
+        x.innerHTML = '';
+      }, 3000);
     }
   }
 };
@@ -92,8 +119,8 @@ document.getElementById('upload_widget').addEventListener('click', function () {
         document.getElementById('imageUploadVerification').innerHTML = `File Uploaded`;
       }
     }
-  ),
-    false;
+  );
+  false;
 });
 
 // event handlers
