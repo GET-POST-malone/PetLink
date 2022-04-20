@@ -71,7 +71,7 @@ Meegan Anderson
 - [meegan.r.anderson@gmail.com](mailto:meegan.r.anderson@gmail.com)
 - [Meegan's Portfolio](https://notanewt.github.io/portfolio/)
 
-John Chirinos
+Jon Chirinos
 - [Jonchirinos Github](https://github.com/Jonchirinos)
 - [chirinosjon@gmail.com](mailto:chirinosjon@gmail.com)
 - [Jon's Portfolio](https://jonchirinos.github.io/portfolio/)
